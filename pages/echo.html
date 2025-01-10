@@ -10,16 +10,21 @@
             width: 480px;
             word-break: break-all;
         }
+
+        button {
+            height: 100px;
+            width: 200px;
+        }
     </style>
 </head>
 <body>
-<button id="id_button_refresh">刷新内容</button>
 <h2>页面URL</h2>
 <div id="id_text_url"></div>
 <h2>浏览器UA</h2>
 <div id="id_text_ua"></div>
 <h2>页面头</h2>
 <div id="id_text_head"></div>
+<button id="id_button_refresh">刷新内容</button>
 <!--suppress JSUnresolvedReference -->
 <script>
     id_button_refresh.onclick = () => {
