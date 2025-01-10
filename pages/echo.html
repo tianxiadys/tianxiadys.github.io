@@ -26,7 +26,7 @@
         id_text_head.innerText = "";
         id_text_url.innerText = "";
         id_text_ua.innerText = "";
-        id_text_head.innerText = document.innerHTML;
+        id_text_head.innerText = document.firstElementChild.innerHTML;
         id_text_url.innerText = location.href;
         id_text_ua.innerText = navigator.userAgent;
     }
