@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=500, user-scalable=no" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=500, user-scalable=no"/>
+    <title>echo html</title>
     <style>
         div {
-            width: 480px;
             background: #ccc;
+            width: 480px;
             word-break: break-all;
         }
     </style>
 </head>
 <body>
-    <h2>页面URL</h2>
-    <div id="id_texturl"></div>
-    <h2>浏览器UA</h2>
-    <div id="id_textua"></div>
-    <h2>页面头</h2>
-    <div id="id_texthead"></div>
-    <script>
-        function pageupdate()
-        {
-            id_texthead.innerText = "";
-            id_texturl.innerText = "";
-            id_textua.innerText = "";
-            id_texthead.innerText = document.firstElementChild.innerHTML;
-            id_texturl.innerText = location.href;
-            id_textua.innerText = navigator.userAgent;
-        }
-        setInterval(pageupdate, 1000);
-    </script>
+<button id="id_button_refresh">刷新内容</button>
+<h2>页面URL</h2>
+<div id="id_text_url"></div>
+<h2>浏览器UA</h2>
+<div id="id_text_ua"></div>
+<h2>页面头</h2>
+<div id="id_text_head"></div>
+<!--suppress JSUnresolvedReference -->
+<script>
+    id_button_refresh.onclick = () => {
+        id_text_head.innerText = "";
+        id_text_url.innerText = "";
+        id_text_ua.innerText = "";
+        id_text_head.innerText = document.innerHTML;
+        id_text_url.innerText = location.href;
+        id_text_ua.innerText = navigator.userAgent;
+    }
+</script>
 </body>
 </html>
