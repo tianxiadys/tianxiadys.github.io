@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=500, user-scalable=no" />
+    <style>
+        div {
+            width: 480px;
+            background: #ccc;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <h2>页面URL</h2>
+    <div id="id_texturl"></div>
+    <h2>浏览器UA</h2>
+    <div id="id_textua"></div>
+    <h2>页面头</h2>
+    <div id="id_texthead"></div>
+    <script>
+        function pageupdate()
+        {
+            id_texthead.innerText = "";
+            id_texturl.innerText = "";
+            id_textua.innerText = "";
+            id_texthead.innerText = document.firstElementChild.innerHTML;
+            id_texturl.innerText = location.href;
+            id_textua.innerText = navigator.userAgent;
+        }
+        setInterval(pageupdate, 1000);
+    </script>
+</body>
+</html>
