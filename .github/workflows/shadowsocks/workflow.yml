@@ -24,5 +24,6 @@ jobs:
       - name: Docker Build And Push
         uses: docker/build-push-action@v5
         with:
+          context: .github/workflows/shadowsocks
           push: true
           tags: tianxiadys/shadowsocks:1.22.0,tianxiadys/shadowsocks:latest
