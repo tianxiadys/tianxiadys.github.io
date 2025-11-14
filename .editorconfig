@@ -1,4 +1,4 @@
-[*]
+[*.html]
 ij_html_attribute_wrap = off
 ij_javascript_enforce_trailing_comma = remove
 ij_javascript_force_quote_style = true
