@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/shadowsocks.yml
       - .docker/shadowsocks/**
+      - .github/workflows/shadowsocks.yml
 jobs:
   build-docker:
     runs-on: ubuntu-latest
