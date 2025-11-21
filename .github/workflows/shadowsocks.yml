@@ -27,4 +27,7 @@ jobs:
         with:
           context: .docker/shadowsocks
           push: true
-          tags: tianxiadys/shadowsocks:1.22.0,tianxiadys/shadowsocks:latest
+          tags:
+            tianxiadys/shadowsocks:1.23.5-1,
+            tianxiadys/shadowsocks:1.23.5,
+            tianxiadys/shadowsocks:latest

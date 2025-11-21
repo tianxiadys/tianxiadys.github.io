@@ -1,6 +1,6 @@
-FROM alpine:3.21.3
+FROM alpine:3.22.2
 
-ARG VERSION=v1.22.0
+ARG VERSION=v1.23.5
 ARG ARCH=x86_64-unknown-linux-musl
 ARG ZIPNAME=shadowsocks-${VERSION}.${ARCH}
 ARG ZIPURL=https://github.com/shadowsocks/shadowsocks-rust/releases/download/${VERSION}/${ZIPNAME}.tar.xz

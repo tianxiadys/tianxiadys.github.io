@@ -27,4 +27,7 @@ jobs:
         with:
           context: .docker/rathole
           push: true
-          tags: tianxiadys/rathole:0.5.0,tianxiadys/rathole:latest
+          tags:
+            tianxiadys/rathole:0.5.0-2,
+            tianxiadys/rathole:0.5.0,
+            tianxiadys/rathole:latest
