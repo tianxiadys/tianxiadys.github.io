@@ -28,6 +28,6 @@ jobs:
           context: .github/workflows/ShadowSocks
           push: true
           tags:
-            tianxiadys/shadowsocks:1.23.5-1,
+            tianxiadys/shadowsocks:1.23.5-2,
             tianxiadys/shadowsocks:1.23.5,
             tianxiadys/shadowsocks:latest

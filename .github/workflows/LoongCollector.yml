@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/ilogtail.yml
-      - .docker/ilogtail/**
+      - .github/workflows/LoongCollector/**
+      - .github/workflows/LoongCollector.yml
 jobs:
   build-docker:
     runs-on: ubuntu-latest
@@ -25,6 +25,9 @@ jobs:
       - name: Docker Build And Push
         uses: docker/build-push-action@v5
         with:
-          context: .docker/ilogtail
+          context: .github/workflows/LoongCollector
           push: true
-          tags: tianxiadys/ilogtail:0.1.0-a1,tianxiadys/ilogtail:latest
+          tags:
+            tianxiadys/loongcollector:0.1.0-1,
+            tianxiadys/loongcollector:0.1.0,
+            tianxiadys/loongcollector:latest

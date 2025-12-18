@@ -6,8 +6,10 @@ ARG ZIPNAME=shadowsocks-${VERSION}.${ARCH}
 ARG ZIPURL=https://github.com/shadowsocks/shadowsocks-rust/releases/download/${VERSION}/${ZIPNAME}.tar.xz
 
 RUN <<EOF
+mkdir /app
+mkdir /data
 apk add --no-cache curl
-curl -L -o /root/download.txz ${ZIPURL}
-tar -Jxvf /root/download.txz -C /bin
-rm -rf /root
+curl -L -o /data/download.txz ${ZIPURL}
+tar -Jxvf /data/download.txz -C /app
+rm -rf /data
 EOF

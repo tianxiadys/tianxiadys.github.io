@@ -6,12 +6,14 @@ ARG ZIPNAME=rathole-${ARCH}
 ARG ZIPURL=https://github.com/rapiz1/rathole/releases/download/${VERSION}/${ZIPNAME}.zip
 
 RUN <<EOF
+mkdir /app
+mkdir /data
 apt update
 apt install -y curl unzip
 apt clean
-curl -L -o /root/download.zip ${ZIPURL}
-unzip /root/download.zip rathole -d /bin
-rm -rf /root
+curl -L -o /data/download.zip ${ZIPURL}
+unzip /data/download.zip rathole -d /app
+rm -rf /data
 EOF
 
-CMD ["/bin/rathole", "/app/rathole.toml"]
+CMD ["/app/rathole", "/data/rathole.toml"]
