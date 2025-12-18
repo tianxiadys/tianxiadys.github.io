@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress JSUnresolvedReference -->
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8"/>
@@ -28,13 +27,19 @@
 <div id="id_text_head"></div>
 <button id="id_button_refresh">刷新内容</button>
 <script>
-    id_button_refresh.onclick = () => {
-        id_text_head.innerText = ''
-        id_text_url.innerText = ''
-        id_text_ua.innerText = ''
-        id_text_head.innerText = document.firstElementChild.innerHTML
-        id_text_url.innerText = location.href
-        id_text_ua.innerText = navigator.userAgent
+    onload = () => {
+        const buttonRefresh = document.getElementById('id_button_refresh')
+        const outputHead = document.getElementById('id_text_head')
+        const outputUA = document.getElementById('id_text_ua')
+        const outputURL = document.getElementById('id_text_url')
+        buttonRefresh.onclick = () => {
+            outputHead.innerText = ''
+            outputURL.innerText = ''
+            outputUA.innerText = ''
+            outputHead.innerText = document.firstElementChild.innerHTML
+            outputURL.innerText = location.href
+            outputUA.innerText = navigator.userAgent
+        }
     }
 </script>
 </body>
