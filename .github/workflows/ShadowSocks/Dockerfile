@@ -10,6 +10,6 @@ mkdir /app
 mkdir /data
 apk add --no-cache curl
 curl -L -o /data/download.txz ${ZIPURL}
-tar -Jxvf /data/download.txz -C /app
+tar -Jxf /data/download.txz -C /app
 rm -rf /data
 EOF
