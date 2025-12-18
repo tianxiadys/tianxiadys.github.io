@@ -14,7 +14,7 @@ apt update
 apt install -y curl
 apt clean
 curl -L -o /data/download.tgz ${ZIPURL}
-tar -zxvf /data/download.tgz -C /app
+tar -zxvf /data/download.tgz --strip-components 1 -C /app ${ZIPNAME}
 find /app
 find /data
 rm -rf /data
