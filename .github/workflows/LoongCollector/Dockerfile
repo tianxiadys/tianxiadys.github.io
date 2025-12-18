@@ -1,17 +1,21 @@
 FROM debian:12.9
 
-ARG VERSION=v0.5.0
-ARG ARCH=x86_64-unknown-linux-gnu
-ARG ZIPNAME=rathole-${ARCH}
-ARG ZIPURL=https://github.com/rapiz1/rathole/releases/download/${VERSION}/${ZIPNAME}.zip
+ARG ARCH=x86_64
+ARG REGION=cn-hangzhou
+ARG SYSTEM=linux64
+ARG VERSION=3.2.4
+ARG ZIPNAME=loongcollector-${SYSTEM}
+ARG ZIPURL=https://aliyun-observability-release-${REGION}.oss-${REGION}.aliyuncs.com/loongcollector/${SYSTEM}/${VERSION}/${ARCH}/main/${ZIPNAME}.tar.gz
 
 RUN <<EOF
+mkdir /app
+mkdir /data
 apt update
-apt install -y curl unzip
+apt install -y curl
 apt clean
-curl -L -o /root/download.zip ${ZIPURL}
-unzip /root/download.zip rathole -d /bin
-rm -rf /root
+curl -L -o /data/download.tgz ${ZIPURL}
+tar -zxvf /data/download.tgz -C /app
+find /app
+find /data
+rm -rf /data
 EOF
-
-CMD ["/bin/rathole", "/app/rathole.toml"]

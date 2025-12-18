@@ -1,4 +1,4 @@
-name: Docker iLogTail
+name: Docker:LoongCollector
 on:
   push:
     branches:
