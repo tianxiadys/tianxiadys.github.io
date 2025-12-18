@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - .docker/shadowsocks/**
-      - .github/workflows/shadowsocks.yml
+      - .github/workflows/ShadowSocks/**
+      - .github/workflows/ShadowSocks.yml
 jobs:
   build-docker:
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
       - name: Docker Build And Push
         uses: docker/build-push-action@v5
         with:
-          context: .docker/shadowsocks
+          context: .github/workflows/ShadowSocks
           push: true
           tags:
             tianxiadys/shadowsocks:1.23.5-1,
