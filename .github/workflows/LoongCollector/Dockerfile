@@ -23,6 +23,7 @@ mv -t /app /app/${ZIPNAME}/bin/libdcgm.so
 mv -t /app /app/${ZIPNAME}/bin/libeBPFDriver.so
 mv -t /app /app/${ZIPNAME}/bin/libGoPluginAdapter.so
 mv -t /app /app/${ZIPNAME}/bin/libGoPluginBase.so
+mv -t /app /app/${ZIPNAME}/conf
 mv -t /app /app/${ZIPNAME}/resources/ca-bundle.crt
 link /app/${BINARY} /app/loongcollector
 find /app
