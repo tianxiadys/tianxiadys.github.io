@@ -27,4 +27,5 @@ rm -rf /data
 EOF
 
 WORKDIR "/app"
-CMD ["/app/loongcollector", "-enable_host_id=false"]
+COPY --chmod=755 Entrypoint.sh /app/Entrypoint.sh
+CMD ["/app/Entrypoint.sh"]
