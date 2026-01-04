@@ -1,4 +1,4 @@
-FROM debian:12.9
+FROM debian:12.12
 
 ARG ARCH=x86_64
 ARG REGION=cn-hangzhou
