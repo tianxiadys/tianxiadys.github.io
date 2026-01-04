@@ -29,6 +29,6 @@ jobs:
           push: true
           tags:
             tianxiadys/rathole:0.5.0-3,
-            tianxiadys/rathole:0.5.0,
             tianxiadys/rathole:0.5.0-debian,
+            tianxiadys/rathole:0.5.0,
             tianxiadys/rathole:latest
