@@ -11,8 +11,10 @@ mkdir /data
 apt update
 apt install -y curl unzip
 apt clean
+###
 curl -L -o /data/download.zip ${ZIPURL}
 unzip /data/download.zip rathole -d /app
+###
 rm -rf /data
 EOF
 
