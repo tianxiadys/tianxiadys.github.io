@@ -1,0 +1,949 @@
+# /app/loongcollector_3.2.4 --help
+loongcollector_3.2.4: Warning: SetUsageMessage() never called
+
+  Flags from /build/loongcollector/app_config/AppConfig.cpp:
+    -ALIYUN_LOG_FILE_TAGS (default env file key to load tags) type: string
+      default: ""
+    -LOONG_FILE_TAGS (default env file key to load tags) type: string
+      default: ""
+    -_pod_name_ (agent pod name) type: string default: ""
+    -app_info_file () type: string default: "app_info.json"
+    -buffer_file_path (set buffer dir) type: string default: ""
+    -check_point_filename () type: string default: "/tmp/logtail_check_point"
+    -check_profile_region () type: bool default: false
+    -crash_stack_file_name (crash stack back trace file name) type: string
+      default: "backtrace.dat"
+    -data_server_port () type: int32 default: 80
+    -default_accept_multi_config () type: bool default: false
+    -default_buffer_file_num (how many buffer files in default) type: int32
+      default: 50
+    -default_buffer_file_path (set current execution dir in default)
+      type: string default: ""
+    -default_env_tag_keys (default env key to load tags) type: string
+      default: "ALIYUN_LOG_ENV_TAGS"
+    -default_include_config_path () type: string default: "config.d"
+    -default_input_flow_control () type: bool default: false
+    -default_local_file_size (default size of one buffer file) type: int32
+      default: 20971520
+    -default_machine_cpu_usage_threshold (machine level) type: double
+      default: 0.40000000000000002
+    -default_max_sender_queue_extra_buffer_size_bytes (default extra buffer
+      size) type: int32 default: 104857600
+    -default_oas_connect_timeout (default (minimum) connect timeout for
+      OSARequest) type: int32 default: 5
+    -default_oas_request_timeout (default (minimum) request timeout for
+      OSARequest) type: int32 default: 10
+    -default_resource_auto_scale () type: bool default: false
+    -default_send_byte_per_sec (the max send speed per sec, replay buffer
+      thread) type: int32 default: 2097152
+    -host_path_blacklist (host path matches substring in blacklist will be
+      ignored) type: string default: ""
+    -ilogtail_config_env_name (config file path) type: string
+      default: "ALIYUN_LOGTAIL_CONFIG"
+    -ilogtail_docker_file_path_config (ilogtail docker path config file)
+      type: string default: "docker_path_config.json"
+    -inotify_watcher_dirs_dump_filename () type: string
+      default: "inotify_watcher_dirs"
+    -k8s_meta_service_port (loong collector operator service port) type: int32
+      default: 9000
+    -k8s_metadata_server_name (loong collector singleton service for k8s
+      metadata server) type: string default: "loongcollector-singleton"
+    -k8s_metadata_server_port (loong collector singleton service port for k8s
+      metadata server) type: int32 default: 8899
+    -local_event_data_file_name (local event data file name) type: string
+      default: "local_event.json"
+    -logtail_mode (logtail mode) type: bool default: true
+    -logtail_profile_snapshot (reader profile on local disk) type: string
+      default: "logtail_profile_snapshot"
+    -logtail_snapshot_dir (snapshot dir on local disk) type: string
+      default: "snapshot"
+    -logtail_sys_conf_dir (store machine-unique-id, user-defined-id, aliuid)
+      type: string default: "/etc/ilogtail/"
+    -max_buffer_num (max size) type: int32 default: 40
+    -max_holded_data_size (for every id and metric name, the max data size can
+      be holded in memory (default 512KB)) type: int32 default: 524288
+    -max_multi_config_size (max multi config size) type: int32 default: 20
+    -max_open_files_limit (max open files ulimit -n) type: int32
+      default: 131072
+    -metrics_report_method (method to report metrics (default none, means
+      logtail will not report metrics)) type: string default: "sls"
+    -operator_service (loong collector operator service) type: string
+      default: ""
+    -operator_service_port (loong collector operator service port) type: int32
+      default: 8888
+    -process_thread_count () type: int32 default: 1
+    -send_request_concurrency (max count keep in mem when async send)
+      type: int32 default: 15
+    -sls_observer_ebpf_host_path (the backup real host path for store
+      libebpf.so) type: string default: "/etc/ilogtail/ebpf/"
+
+
+
+  Flags from /build/loongcollector/application/Application.cpp:
+    -config_scan_interval (seconds) type: int32 default: 10
+    -config_server_lost_connection_timeout (config server lost connection
+      timeout, seconds) type: int32 default: 3600
+    -enable_cgroup () type: bool default: false
+    -exit_flushout_duration (exit process flushout duration) type: int32
+      default: 20000
+    -file_tags_update_interval (second) type: int32 default: 60
+    -ilogtail_disable_core (disable core in worker process) type: bool
+      default: true
+    -queue_check_gc_interval_sec (30s) type: int32 default: 30
+    -tcmalloc_release_memory_interval (force release memory held by tcmalloc,
+      seconds) type: int32 default: 300
+
+
+
+  Flags from /build/loongcollector/collection_pipeline/plugin/PluginRegistry.cpp:
+    -enable_ebpf_file_secure () type: bool default: true
+    -enable_ebpf_network_observer () type: bool default: true
+    -enable_ebpf_network_secure () type: bool default: false
+    -enable_ebpf_process_secure () type: bool default: true
+    -enable_processor_spl () type: bool default: true
+
+
+
+  Flags from /build/loongcollector/collection_pipeline/queue/ExactlyOnceQueueManager.cpp:
+    -logtail_queue_gc_threshold_sec (2min) type: int32 default: 120
+    -logtail_queue_max_used_time_per_round_in_msec (500ms) type: int64
+      default: 500
+
+  Flags from /build/loongcollector/collection_pipeline/queue/ProcessQueueManager.cpp:
+    -bytes_bounded_process_queue_capacity () type: int32 default: 10485760
+    -count_bounded_process_queue_capacity () type: int32 default: 5
+
+  Flags from /build/loongcollector/collection_pipeline/queue/SenderQueueManager.cpp:
+    -sender_queue_capacity () type: int32 default: 15
+    -sender_queue_gc_threshold_sec (30s) type: int32 default: 30
+
+
+
+  Flags from /build/loongcollector/common/DNSCache.cpp:
+    -dns_cache_ttl_sec () type: int32 default: 600
+
+  Flags from /build/loongcollector/common/FileEncryption.cpp:
+    -file_encryption_field_key_version (field name: version of key)
+      type: string default: "key_version"
+    -file_encryption_field_splitter (splitter between two fields) type: string
+      default: ""
+    -file_encryption_header_length (the encryption file header length in bytes)
+      type: int32 default: 128
+    -file_encryption_key_value_splitter (splitter between key and value in one
+      field) type: string default: ":"
+    -file_encryption_magic_number (indicate it is an logtail encryption file)
+      type: string default: "LOGTAILENCRYPT"
+
+  Flags from /build/loongcollector/common/LinuxDaemonUtil.cpp:
+    -ilogtail_daemon_flag () type: bool default: true
+
+  Flags from /build/loongcollector/common/LogtailCommonFlags.cpp:
+    -conf_dir (loongcollector config dir) type: string default: "conf"
+    -cpu_limit_num (cpu violate limit num before shutdown) type: int32
+      default: 10
+    -cpu_usage_up_limit (cpu usage upper limit, cores) type: double default: 2
+    -data_dir (loongcollector data dir) type: string default: "data"
+    -default_container_host_path () type: string default: "/logtail_host"
+    -default_region_name (for compatible with old user_log_config.json or old
+      config server) type: string default: "__default_region__"
+    -ebpf_event_retry_interval_sec (Time in seconds between ebpf event retries)
+      type: int32 default: 2
+    -ebpf_event_retry_limit (Number of attempts to retry processing ebpf event)
+      type: int32 default: 15
+    -ebpf_max_aggregate_events (Maximum events in aggregate tree before
+      sending) type: int32 default: 2000
+    -enable_full_drain_mode () type: bool default: false
+    -enable_root_path_collection () type: bool default: false
+    -ilogtail_config (set dataserver & configserver address; (optional)set
+      cpu,mem,bufflerfile,buffermap and etc.) type: string
+      default: "ilogtail_config.json"
+    -ilogtail_discard_interval (if the data is old than the interval, it will
+      be discard) type: int32 default: 43200
+    -ilogtail_discard_old_data (if discard the old data flag) type: bool
+      default: true
+    -ilogtail_epoll_time_out (default time out is 1s) type: int32 default: 1
+    -ilogtail_epoll_wait_events (epoll_wait event number) type: int32
+      default: 100
+    -ilogtail_max_epoll_events (the max events number in epoll) type: int32
+      default: 10000
+    -logs_dir (loongcollector log dir) type: string default: "log"
+    -logtail_profile_aliuid (default user's aliuid) type: string default: ""
+    -mem_limit_num (memory violate limit num before shutdown) type: int32
+      default: 10
+    -memory_usage_up_limit (memory usage upper limit, MB) type: int64
+      default: 2048
+    -monitor_interval (program monitor interval, seconds) type: int32
+      default: 30
+    -run_dir (loongcollector run dir) type: string default: "run"
+    -sls_client_send_compress (whether compresses the data or not when put
+      data) type: bool default: true
+    -third_party_dir (loongcollector third party dir) type: string
+      default: "thirdparty"
+    -timeout_interval (the time interval that an inactive dir being timeout,
+      seconds) type: int32 default: 900
+    -unused_checkpoints_clear_interval_sec () type: int32 default: 600
+
+  Flags from /build/loongcollector/common/MachineInfoUtil.cpp:
+    -agent_host_id () type: string default: ""
+
+
+
+  Flags from /build/loongcollector/common/http/HttpRequest.cpp:
+    -default_http_request_max_try_cnt () type: int32 default: 3
+    -default_http_request_timeout_sec () type: int32 default: 15
+
+
+
+  Flags from /build/loongcollector/config/CollectionConfig.cpp:
+    -enable_env_ref_in_config (enable environment variable reference
+      replacement in configuration) type: bool default: false
+
+
+
+  Flags from /build/loongcollector/config/common_provider/CommonConfigProvider.cpp:
+    -heartbeat_interval (second) type: int32 default: 10
+
+  Flags from /build/loongcollector/config/common_provider/LegacyCommonConfigProvider.cpp:
+    -config_update_interval (second) type: int32 default: 10
+
+
+
+  Flags from /build/loongcollector/config/provider/ApmConfigProvider.cpp:
+    -apm_config_update_interval (config update interval for apm, second)
+      type: int32 default: 10
+    -unused_apm_config_delete_interval (interval to delete unused apm config,
+      second) type: int32 default: 600
+
+  Flags from /build/loongcollector/config/provider/EnterpriseConfigProvider.cpp:
+    -agentconfig_access_key (default agentconfig's AccessKey) type: string
+      default: "2D2CB141D9B49DBCCF47ED437E3AF287"
+    -agentconfig_access_key_id (default agentconfig's accessKeyId) type: string
+      default: "94to3z418yupi6ikawqqd370"
+    -basic_host_monitor_interval (basic host monitor interval) type: int32
+      default: 15
+    -check_config_update_interval (config update interval for corp region type,
+      second) type: int32 default: 120
+    -config_server_address_list () type: string default: ""
+    -enable_basic_host_monitor (enable basic host monitor) type: bool
+      default: false
+    -enable_host_id () type: bool default: false
+    -global_multi_config_server_update_retry_interval (second) type: int32
+      default: 30
+    -global_pub_config_retry_interval (second) type: int32 default: 180
+    -global_pub_config_retry_interval_net_max (second) type: int32
+      default: 7200
+    -global_pub_config_retry_interval_noconfig_max (second) type: int32
+      default: 900
+    -idpt_cloud_endpoint_suffix () type: string default: ".aliyuncs.com"
+    -ilogtail_aliuid_env_name (aliuid) type: string
+      default: "ALIYUN_LOGTAIL_USER_ID"
+    -ilogtail_user_defined_id_env_name (user defined id) type: string
+      default: "ALIYUN_LOGTAIL_USER_DEFINED_ID"
+    -is_idpt_cloud () type: bool default: false
+    -logtail_config_address (the target address to which to get config update)
+      type: string default: "http://config.sls.aliyun-inc.com"
+    -logtail_config_update_enable () type: bool default: true
+    -logtail_send_address (the target address to which to send the log result)
+      type: string default: "http://sls.aliyun-inc.com"
+    -logtail_sys_conf_update_interval (control the frenquency of load local
+      machine conf, seconds) type: int32 default: 60
+    -logtail_sys_conf_users_dir () type: string default: "users"
+    -pub_region_config_update_interval (config update interval for pub region
+      type, second) type: int32 default: 15
+    -unused_pipeline_configs_clear_interval_sec () type: int32 default: 600
+    -use_https_config_server (Use HTTPS to fetch remote config) type: bool
+      default: false
+    -user_defined_id_file () type: string default: "user_defined_id"
+    -user_log_config () type: string default: "user_log_config.json"
+
+  Flags from /build/loongcollector/config/provider/LegacyConfigProvider.cpp:
+    -ilogtail_local_config (local ilogtail config file) type: string
+      default: "user_local_config.json"
+    -ilogtail_local_config_dir (local ilogtail config file dir) type: string
+      default: "user_config.d"
+    -legacy_config_update_interval (second) type: int32 default: 10
+
+
+
+  Flags from /build/loongcollector/config_sdk/ConfigClient.cpp:
+    -oas_request_output_ascii_format () type: bool default: true
+    -oas_request_output_file () type: string default: "debug_libcurl.LOG"
+    -oas_request_output_send_fail () type: bool default: true
+    -oas_requst_enable_trace () type: bool default: false
+
+
+
+  Flags from /build/loongcollector/container_manager/ContainerDiscoveryOptions.cpp:
+    -default_plugin_log_queue_size () type: int32 default: 10
+
+
+
+  Flags from /build/loongcollector/ebpf/Config.cpp:
+    -ebpf_admin_config_debug_mode (ebpf admin config debug mode) type: bool
+      default: false
+    -ebpf_admin_config_log_level (ebpf admin config log level) type: string
+      default: "warn"
+    -ebpf_admin_config_push_all_span (if admin config push all span) type: bool
+      default: false
+    -ebpf_aggregation_config_agg_window_second (ebpf data aggregation window
+      time) type: int32 default: 15
+    -ebpf_converage_config_strategy (ebpf converage strategy) type: string
+      default: "combine"
+    -ebpf_file_filter_max_num (ebpf file filter max num) type: int32
+      default: 64
+    -ebpf_process_probe_config_enable_oom_detect (if ebpf process probe enable
+      oom detect) type: bool default: false
+    -ebpf_profile_probe_config_profile_sample_rate (ebpf profile probe profile
+      sample rate) type: int32 default: 10
+    -ebpf_profile_probe_config_profile_upload_duration (ebpf profile probe
+      profile upload duration) type: int32 default: 10
+    -ebpf_receive_event_chan_cap (ebpf receive kernel event queue size)
+      type: int32 default: 4096
+    -ebpf_sample_config_config_rate (ebpf sample rate) type: double
+      default: 0.01
+    -ebpf_sample_config_strategy (ebpf sample strategy) type: string
+      default: "fixedRate"
+    -ebpf_socket_probe_config_max_band_width_mb_per_sec (ebpf socket probe max
+      bandwidth per sec) type: int32 default: 30
+    -ebpf_socket_probe_config_max_conn_trackers (ebpf socket probe max connect
+      trackers) type: int32 default: 10000
+    -ebpf_socket_probe_config_max_raw_record_per_sec (ebpf socket probe max raw
+      record per sec) type: int32 default: 100000
+    -ebpf_socket_probe_config_slow_request_threshold_ms (ebpf socket probe slow
+      request threshold) type: int32 default: 500
+
+  Flags from /build/loongcollector/ebpf/EBPFServer.cpp:
+    -kernel_min_version_for_ebpf (the minimum kernel version that supported
+      eBPF normal running, 4.19.0.0 -> 4019000000) type: int64
+      default: 4019000000
+
+
+
+  Flags from /build/loongcollector/ebpf/plugin/ProcessCacheManager.cpp:
+    -ebpf_process_cache_gc_interval_sec (Time in seconds between checking the
+      process cache for expired entries) type: int32 default: 30
+    -max_ebpf_max_process_data_map_size (Size of the data events cache)
+      type: int32 default: 2048
+    -max_ebpf_process_cache_size (Size of the process cache) type: int32
+      default: 131072
+
+
+
+  Flags from /build/loongcollector/ebpf/plugin/network_observer/NetworkObserverManager.cpp:
+    -ebpf_networkobserver_agent_env (deploy env: ACSK8S,Serverless,ECS_AUTO)
+      type: string default: "ACSK8S"
+    -ebpf_networkobserver_default_sample_rate (ebpf network observer default
+      sample rate) type: double default: 1
+    -ebpf_networkobserver_enable_protocols (enable application protocols, split
+      by comma) type: string default: "HTTP"
+    -ebpf_networkobserver_max_connections (maximum connections) type: int32
+      default: 5000
+
+
+
+  Flags from /build/loongcollector/ebpf/util/Converger.cpp:
+    -ebpf_apm_default_url_threshold (apm default url threshold) type: int32
+      default: 1024
+
+
+
+  Flags from /build/loongcollector/enterprise_logtail.cpp:
+    -fork_interval (fork dispatcher process interval) type: int32 default: 10
+
+
+
+  Flags from /build/loongcollector/file_server/ConfigManager.cpp:
+    -config_match_max_cache_size () type: int32 default: 1000000
+    -docker_config_update_interval (interval between docker config updates,
+      seconds) type: int32 default: 3
+    -ilogtail_docker_path_version (ilogtail docker path config file)
+      type: string default: "0.1.0"
+    -max_docker_config_update_times (max times docker config update in 3
+      minutes) type: int32 default: 10
+    -multi_config_alarm_interval (second) type: int32 default: 600
+    -wildcard_max_sub_dir_count () type: int32 default: 1000
+
+  Flags from /build/loongcollector/file_server/EventDispatcher.cpp:
+    -checkpoint_find_max_cache_size () type: int32 default: 100000
+    -default_max_inotify_watch_num (the max allowed inotify watch dir number)
+      type: int32 default: 3000
+    -existed_file_active_timeout (when first monitor directory, file modified
+      in 120 seconds will be collected) type: int32 default: 120
+    -max_watch_dir_count () type: int32 default: 100000
+
+  Flags from /build/loongcollector/file_server/FileDiscoveryOptions.cpp:
+    -max_file_paths_per_input_config () type: int32 default: 10
+
+  Flags from /build/loongcollector/file_server/FileServer.cpp:
+    -enable_polling_discovery () type: bool default: true
+
+  Flags from /build/loongcollector/file_server/StaticFileServer.cpp:
+    -input_static_file_checkpoint_dump_interval_sec () type: int32 default: 5
+
+
+
+  Flags from /build/loongcollector/file_server/checkpoint/CheckPointManager.cpp:
+    -check_point_check_interval (default 15 min) type: int32 default: 840
+    -check_point_dump_interval (default 15 min) type: int32 default: 900
+    -check_point_max_count (max check point count) type: int32 default: 100000
+    -check_point_version (now check point version xx.xx.xx such as 0.1.0 is
+      100) type: int32 default: 200
+    -checkpoint_find_max_file_count () type: int32 default: 1000
+    -file_check_point_time_out (seconds) type: int32 default: 300
+    -mem_check_point_time_out (seconds) type: int32 default: 7200
+
+  Flags from /build/loongcollector/file_server/checkpoint/CheckpointManagerV2.cpp:
+    -logtail_checkpoint_check_gc_interval_sec (60 seconds) type: int32
+      default: 60
+    -logtail_checkpoint_expired_threshold_sec (6 hours) type: int32
+      default: 21600
+    -logtail_checkpoint_gc_threshold_sec (30 minutes) type: int32 default: 1800
+    -logtail_checkpoint_max_gc_count_ratio_per_round (10%) type: double
+      default: 0.10000000000000001
+    -logtail_checkpoint_max_used_time_per_round_in_msec (500ms) type: int64
+      default: 500
+
+
+
+  Flags from /build/loongcollector/file_server/event/BlockEventManager.cpp:
+    -max_block_event_timeout (max block event timeout, seconds) type: int32
+      default: 3
+
+
+
+  Flags from /build/loongcollector/file_server/event_handler/EventHandler.cpp:
+    -cookie_timeout_interval (rotate cookie hasn't updated for a long time will
+      be removed, seconds) type: int32 default: 1800
+    -logreader_count_max (when reader (in one dir) count exceed limit, modify
+      handler will remove old reader ) type: int32 default: 100000
+    -logreader_count_max_remove_count (remove reader count ) type: int32
+      default: 10000
+    -logreader_count_maxlimit (when reader (in one dir) count exceed limit,
+      reader hasn't updated for 24 hours will be removed) type: int32
+      default: 10000
+    -logreader_count_upperlimit (when reader (in one dir) count exceed limit,
+      reader hasn't updated for 7 * 24 hours will be removed) type: int32
+      default: 5000
+    -logreader_filedeleted_remove_interval (when file is deleted, reader will
+      be removed after seconds) type: int32 default: 900
+    -logreader_filerotate_remove_interval (when file is rotate, reader will be
+      removed after seconds) type: int32 default: 600
+    -logreader_timeout_interval (reader hasn't updated for a long time will be
+      removed, seconds) type: int32 default: 1728000000
+    -read_file_time_slice (microseconds) type: int64 default: 25000
+    -rotate_overflow_error_interval (second) type: int32 default: 60
+
+  Flags from /build/loongcollector/file_server/event_handler/LogInput.cpp:
+    -check_base_dir_interval (seconds) type: int32 default: 60
+    -check_block_event_interval (seconds) type: int32 default: 1
+    -check_handler_timeout_interval (seconds) type: int32 default: 180
+    -check_symbolic_link_interval (seconds) type: int32 default: 120
+    -check_timeout_interval (seconds) type: int32 default: 600
+    -clear_config_match_interval (seconds) type: int32 default: 600
+    -dump_inotify_watcher_interval (seconds) type: int32 default: 180
+    -force_close_file_on_container_stopped (whether close file handler
+      immediately when associate container stopped) type: bool default: false
+    -log_input_thread_wait_interval (microseconds) type: int32 default: 20000
+    -read_fs_events_interval (microseconds) type: int64 default: 20000
+    -read_local_event_interval (seconds) type: int32 default: 60
+
+
+
+  Flags from /build/loongcollector/file_server/event_listener/EventListener_Linux.cpp:
+    -fs_events_inotify_enable () type: bool default: true
+
+
+
+  Flags from /build/loongcollector/file_server/polling/PollingCache.cpp:
+    -max_file_not_exist_times (treat as deleted when file stat failed XX times,
+      default) type: int32 default: 10
+
+  Flags from /build/loongcollector/file_server/polling/PollingDirFile.cpp:
+    -check_not_exist_file_dir_round (clear not exist file dir cache, round)
+      type: int32 default: 20
+    -delete_dir_file_round (delete not exist file dir, round) type: int32
+      default: 100
+    -dirfile_check_interval_ms (dir file check interval, ms) type: int32
+      default: 5000
+    -dirfile_stat_count (sleep when dir file stat count up to) type: int32
+      default: 100
+    -dirfile_stat_sleep (sleep time when dir file stat up to 1000, ms)
+      type: int32 default: 30
+    -polling_check_timeout_interval ( ) type: int32 default: 600
+    -polling_dir_first_watch_timeout (do not post event if modify time is up
+      to) type: int32 default: 10800
+    -polling_dir_timeout (remove unchanged dir if modify time is older than
+      time) type: int32 default: 43200
+    -polling_dir_upperlimit (try to remove unchanged dir if dir count is up to)
+      type: int32 default: 500000
+    -polling_file_first_watch_timeout (do not post event if modify time is up
+      to) type: int32 default: 10800
+    -polling_file_timeout (remove unchanged file if modify time is older than
+      time) type: int32 default: 43200
+    -polling_file_upperlimit (try to remove unchanged file if file count is up
+      to) type: int32 default: 500000
+    -polling_max_stat_count (max stat count in each round) type: int32
+      default: 1000000
+    -polling_max_stat_count_per_config (max stat count per config in each
+      round) type: int32 default: 100000
+    -polling_max_stat_count_per_dir (max stat count per dir in each round)
+      type: int32 default: 100000
+    -polling_modify_repush_interval (polling modify event repush interval,
+      seconds) type: int32 default: 10
+
+  Flags from /build/loongcollector/file_server/polling/PollingEventQueue.cpp:
+    -max_polling_event_queue_size (max polling event queue size) type: int32
+      default: 10000
+
+  Flags from /build/loongcollector/file_server/polling/PollingModify.cpp:
+    -ignore_file_modify_timeout (if file modify time is up to XXX seconds,
+      ignore it) type: int32 default: 180
+    -modify_cache_make_space_interval (second) type: int32 default: 600
+    -modify_cache_max (max modify cache size, if exceed, delete 0.2 oldest)
+      type: int32 default: 100000
+    -modify_check_interval (modify check interval ms) type: int32 default: 1000
+    -modify_stat_count (sleep when dir file stat count up to) type: int32
+      default: 100
+    -modify_stat_sleepMs (sleep time when dir file stat up to 1000, ms)
+      type: int32 default: 10
+
+
+
+  Flags from /build/loongcollector/file_server/reader/FileReaderOptions.cpp:
+    -default_reader_flush_timeout () type: int32 default: 60
+    -default_tail_limit_kb (when first open file, if offset little than this
+      value, move offset to beginning, KB) type: int32 default: 1024
+    -delay_bytes_upperlimit (if (total_file_size - current_readed_size) exceed
+      upperlimit, send READ_LOG_DELAY_ALARM, bytes) type: int32
+      default: 209715200
+    -logreader_max_rotate_queue_size () type: int32 default: 20
+    -reader_close_unused_file_time (second ) type: int32 default: 60
+
+  Flags from /build/loongcollector/file_server/reader/LogFileReader.cpp:
+    -force_release_deleted_file_fd_timeout (force release fd if file is deleted
+      after specified seconds, no matter read to end or not) type: int32
+      default: -1
+    -max_fix_pos_bytes () type: int32 default: 131072
+    -max_reader_open_files (max fd count that reader can open max) type: int32
+      default: 100000
+    -read_delay_alarm_duration (if read delay elapsed this duration, send
+      READ_LOG_DELAY_ALARM, seconds) type: int32 default: 60
+    -skip_first_modify_time (second ) type: int32 default: 300
+    -truncate_pos_skip_bytes (skip more xx bytes when truncate) type: int32
+      default: 0
+
+
+
+  Flags from /build/loongcollector/forward/GrpcInputManager.cpp:
+    -grpc_server_forward_max_retry_times (grpc server forward max retry times)
+      type: int32 default: 100
+    -grpc_server_stop_timeout (grpc server stop timeout, second) type: int32
+      default: 3
+
+
+
+  Flags from /build/loongcollector/go_pipeline/LogtailPlugin.cpp:
+    -enable_sls_metrics_format (if enable format metrics in SLS metricstore log
+      pattern) type: bool default: true
+
+
+
+  Flags from /build/loongcollector/host_monitor/HostMonitorInputRunner.cpp:
+    -host_monitor_max_blocked_count (host monitor max blocked count to restart)
+      type: int32 default: 5
+    -host_monitor_thread_pool_size (host monitor thread pool size) type: int32
+      default: 3
+
+  Flags from /build/loongcollector/host_monitor/SystemInterface.cpp:
+    -system_interface_cache_cleanup_interval_seconds (cache cleanup interval in
+      seconds) type: int32 default: 300
+    -system_interface_cache_entry_expire_seconds (cache entry expire time in
+      seconds) type: int32 default: 60
+    -system_interface_cache_max_cleanup_batch_size (max entries to cleanup in
+      one batch) type: int32 default: 50
+    -system_interface_cache_queue_size (system interface default cache size)
+      type: int32 default: 5
+
+
+
+  Flags from /build/loongcollector/host_monitor/collector/CPUCollector.cpp:
+    -basic_host_monitor_cpu_collect_interval (basic host monitor cpu collect
+      interval, seconds) type: int32 default: 1
+
+  Flags from /build/loongcollector/host_monitor/collector/DiskCollector.cpp:
+    -basic_host_monitor_disk_collect_interval (basic host monitor disk collect
+      interval, seconds) type: int32 default: 1
+
+  Flags from /build/loongcollector/host_monitor/collector/GPUCollector.cpp:
+    -basic_host_monitor_gpu_collect_interval (basic host monitor gpu collect
+      interval, seconds) type: int32 default: 15
+
+  Flags from /build/loongcollector/host_monitor/collector/MemCollector.cpp:
+    -basic_host_monitor_mem_collect_interval (basic host monitor mem collect
+      interval, seconds) type: int32 default: 5
+
+  Flags from /build/loongcollector/host_monitor/collector/NetCollector.cpp:
+    -basic_host_monitor_net_collect_interval (basic host monitor net collect
+      interval, seconds) type: int32 default: 1
+
+  Flags from /build/loongcollector/host_monitor/collector/ProcessCollector.cpp:
+    -basic_host_monitor_process_collect_interval (basic host monitor process
+      collect interval, seconds) type: int32 default: 5
+    -host_monitor_process_report_top_N (number of process reported with Top N
+      cpu percent) type: int32 default: 5
+
+  Flags from /build/loongcollector/host_monitor/collector/ProcessEntityCollector.cpp:
+    -process_collect_silent_count (number of process scanned between a sleep)
+      type: int32 default: 1000
+
+  Flags from /build/loongcollector/host_monitor/collector/SystemCollector.cpp:
+    -basic_host_monitor_system_collect_interval (basic host monitor system
+      collect interval, seconds) type: int32 default: 1
+
+
+
+  Flags from /build/loongcollector/logger/Logger.cpp:
+    -logtail_async_logger_enable () type: bool default: true
+    -logtail_async_logger_queue_size () type: int32 default: 1024
+    -logtail_async_logger_thread_num () type: int32 default: 1
+
+
+
+  Flags from /build/loongcollector/metadata/K8sMetadata.cpp:
+    -disable_k8s_meta (disable k8s metadata) type: bool default: false
+    -ipv4_cluster_cidrs (cluster cidr) type: string default: ""
+
+
+
+  Flags from /build/loongcollector/models/EventPool.cpp:
+    -event_pool_gc_interval_sec () type: int32 default: 60
+
+  Flags from /build/loongcollector/models/LogEvent.cpp:
+    -default_log_event_capacity () type: int32 default: 16
+
+
+
+  Flags from /build/loongcollector/monitor/AlarmManager.cpp:
+    -logtail_alarm_interval (the interval of two same type alarm message)
+      type: int32 default: 30
+    -logtail_low_level_alarm_speed (the speed(count/second) which logtail's low
+      level alarm allow) type: int32 default: 100
+
+  Flags from /build/loongcollector/monitor/Monitor.cpp:
+    -logtail_dump_monitor_info (enable to dump Logtail monitor info (CPU, mem))
+      type: bool default: false
+
+
+
+  Flags from /build/loongcollector/monitor/profile_sender/ProfileSender.cpp:
+    -profile_project_name (profile project_name for logtail) type: string
+      default: ""
+    -send_running_status () type: bool default: true
+
+
+
+  Flags from /build/loongcollector/plugin/flusher/sls/DiskBufferWriter.cpp:
+    -buffer_check_period (check logtail local storage buffer period)
+      type: int32 default: 60
+    -buffer_file_alive_interval (the max alive time of a bufferfile, 5 minutes)
+      type: int32 default: 300
+    -log_expire_time (log expire time) type: int32 default: 86400
+    -quota_exceed_wait_interval (when daemon buffer thread get quotaExceed
+      error, sleep 5 seconds) type: int32 default: 5
+    -secondary_buffer_count_limit (data ready for write buffer file)
+      type: int32 default: 20
+    -send_retry_sleep_interval (sleep microseconds when sync send fail, 50ms)
+      type: int32 default: 50000
+    -send_retrytimes (how many times should retry if PostLogStoreLogs operation
+      fail) type: int32 default: 3
+    -unauthorized_wait_interval () type: int32 default: 1
+    -write_secondary_wait_timeout (interval of dump seconary buffer from memory
+      to file, seconds) type: int32 default: 2
+
+  Flags from /build/loongcollector/plugin/flusher/sls/EnterpriseCredentialsProvider.cpp:
+    -https_ca_cert (set CURLOPT_CAINFO for libcurl) type: string
+      default: "ca-bundle.crt"
+    -https_ca_cert_path (set path of CURLOPT_CAINFO for libcurl) type: string
+      default: ""
+    -https_verify_peer (set CURLOPT_SSL_VERIFYPEER, CURLOPT_SSL_VERIFYHOST
+      option for libcurl) type: bool default: true
+    -request_access_key_interval (control the frenquency of GetAccessKey,
+      seconds) type: int32 default: 10
+    -sts_endpoint (sts endpoint) type: string
+      default: "https://sts.aliyuncs.com"
+
+  Flags from /build/loongcollector/plugin/flusher/sls/EnterpriseSLSClientManager.cpp:
+    -default_aliuid () type: string default: ""
+    -logtail_profile_access_key (default user's LogtailAccessKey) type: string
+      default: "2D2CB141D9B49DBCCF47ED437E3AF287"
+    -logtail_profile_access_key_id (default user's accessKeyId) type: string
+      default: "94to3z418yupi6ikawqqd370"
+    -send_prefer_real_ip (use real ip to send data) type: bool default: false
+    -send_switch_real_ip_interval (seconds) type: int32 default: 60
+    -sls_all_hosts_probe_interval_sec (seconds) type: int32 default: 300
+    -sls_client_max_ak_error_cnt () type: int32 default: 3
+    -sls_hosts_probe_interval_sec () type: int32 default: 60
+    -sls_hosts_probe_max_try_cnt () type: int32 default: 3
+    -sls_hosts_probe_timeout () type: int32 default: 3
+    -sls_uninit_hosts_probe_max_try_cnt () type: int32 default: 1
+    -sls_uninit_hosts_probe_timeout () type: int32 default: 1
+
+  Flags from /build/loongcollector/plugin/flusher/sls/FlusherSLS.cpp:
+    -batch_send_interval (batch sender interval (second)(default 3))
+      type: int32 default: 3
+    -batch_send_metric_size (batch send metric size limit(bytes)(default
+      512KB)) type: int32 default: 524288
+    -discard_send_fail_interval (discard data when send fail after 6 * 3600
+      seconds) type: int32 default: 21600
+    -enable_metricstore_channel (only works for metrics data for enhance
+      metrics query performance) type: bool default: true
+    -max_send_log_group_size (bytes) type: int32 default: 10485760
+    -merge_log_count_limit (log count in one logGroup at most) type: int32
+      default: 4000
+    -profile_data_send_retrytimes (how many times should retry if profile data
+      send fail) type: int32 default: 5
+    -send_check_real_ip_interval (seconds) type: int32 default: 2
+    -sls_request_dscp (set dscp for sls request, from 0 to 63) type: int32
+      default: -1
+    -sls_serialize_size_expansion_ratio () type: double default: 1.2
+    -unauthorized_allowed_delay_after_reset (allowed delay to retry for
+      unauthorized error, 30s) type: int32 default: 30
+    -unauthorized_send_retrytimes (how many times should retry if
+      PostLogStoreLogs operation return UnAuthorized) type: int32 default: 5
+    -unknow_error_try_max (discard data when try times > this value)
+      type: int32 default: 5
+
+  Flags from /build/loongcollector/plugin/flusher/sls/SLSClientManager.cpp:
+    -custom_user_agent (custom user agent appended at the end of the exsiting
+      ones) type: string default: ""
+    -default_access_key () type: string default: ""
+    -default_access_key_id () type: string default: ""
+
+
+
+  Flags from /build/loongcollector/plugin/input/InputFile.cpp:
+    -max_exactly_once_concurrency () type: int32 default: 512
+    -search_checkpoint_default_dir_depth (0 means only search current
+      directory) type: int32 default: 0
+
+
+
+  Flags from /build/loongcollector/plugin/processor/ProcessorSPL.cpp:
+    -logtail_spl_pipeline_quota () type: int32 default: 16
+    -logtail_spl_query_max_size () type: int32 default: 65536
+
+
+
+  Flags from /build/loongcollector/plugin/processor/inner/ProcessorParseFromPBNative.cpp:
+    -debug_sls_serializer () type: bool default: false
+
+
+
+  Flags from /build/loongcollector/prometheus/component/StreamScraper.cpp:
+    -enable_prom_stream_scrape (enable prom stream scrape) type: bool
+      default: true
+    -prom_max_sample_length (max sample length) type: int64 default: 8192
+    -prom_stream_bytes_size (stream bytes size) type: int64 default: 1048576
+
+
+
+  Flags from /build/loongcollector/runner/FlusherRunner.cpp:
+    -flusher_runner_exit_timeout_sec () type: int32 default: 60
+
+  Flags from /build/loongcollector/runner/ProcessorRunner.cpp:
+    -default_flush_merged_buffer_interval (default flush merged buffer,
+      seconds) type: int32 default: 1
+    -processor_runner_exit_timeout_sec () type: int32 default: 60
+
+
+
+  Flags from /build/loongcollector/runner/sink/http/HttpSink.cpp:
+    -http_sink_exit_timeout_sec () type: int32 default: 5
+
+
+
+  Flags from /build/loongcollector/shennong/MetricSender.cpp:
+    -enable_shennong_to_metricstore () type: bool default: true
+    -metric_max_buffer_package () type: int32 default: 1000
+
+  Flags from /build/loongcollector/shennong/ShennongManager.cpp:
+    -domain_socket_address (the domain socket address to reveieve data from
+      other process) type: string default: "/tmp/logtail.sock"
+    -max_logtail_writer_packet_size (max packet size thourgh domain socket in
+      shennong agent) type: int64 default: 10000000
+    -merge_shennong_metric (merge LogGroup into LogPackageList if true)
+      type: bool default: true
+    -shennong_check_interval (seconds) type: int32 default: 60
+
+  Flags from /build/loongcollector/shennong/ShennongProtoMetricsConvertor.cpp:
+    -cluster_name (cluster name for shennong metrics) type: string default: ""
+    -cluster_zone_name (cluster zone for shennong metrics) type: string
+      default: ""
+
+
+
+  Flags from /mag/workspace/folly-v2022.11.14.00/folly/detail/MemoryIdler.cpp:
+    -folly_memory_idler_purge_arenas (if enabled, folly memory-idler purges
+      jemalloc arenas on thread idle) type: bool default: true
+
+
+
+  Flags from /mag/workspace/folly-v2022.11.14.00/folly/synchronization/Hazptr.cpp:
+    -folly_hazptr_use_executor (Use an executor for hazptr asynchronous
+      reclamation) type: bool default: true
+
+
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/common/caching/SsdFile.cpp:
+    -ssd_odirect (Use O_DIRECT for SSD cache IO) type: bool default: true
+    -ssd_verify_write (Read back data after writing to SSD) type: bool
+      default: false
+
+
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/exec/CachedResult.cpp:
+    -min_result_cache_value_size_bytes (6k) type: uint64 default: 6144
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/exec/ResultCache.cpp:
+    -add_to_result_cache_ratio_threshold () type: double default: 1
+    -add_to_result_cache_size_threshold (1k) type: int32 default: 1024
+    -enable_result_cache_debug_log () type: bool default: false
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/exec/TableScan.cpp:
+    -force_print_table_scan_stats () type: bool default: false
+
+
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/expression/Expr.cpp:
+    -force_eval_simplified (Whether to overwrite queryCtx and force the use of
+      simplified expression evaluation path.) type: bool default: false
+    -velox_experimental_save_input_on_fatal_signal (This is an experimental
+      flag only to be used for debugging purposes. If set to true, serializes
+      the input vector data and all the SQL expressions in the ExprSet that is
+      currently executing, whenever a fatal signal is encountered. Enabling
+      this flag makes the signal handler async signal unsafe, so it should only
+      be used for debugging purposes. The vector and SQLs are serialized to
+      files in directories specified by either
+      'velox_save_input_on_expression_any_failure_path' or
+      'velox_save_input_on_expression_system_failure_path') type: bool
+      default: false
+
+
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/flag_definitions/flags.cpp:
+    -avx2 (Enables use of AVX2 when available) type: bool default: true
+    -bmi2 (Enables use of BMI2 when available) type: bool default: true
+    -duckdb_preserve_identifier_case (Duckdb parser preseve identifier case)
+      type: bool default: false
+    -velox_enable_memory_usage_track_in_default_memory_pool (If true, enable
+      memory usage tracking in the default memory pool) type: bool
+      default: false
+    -velox_exception_system_stacktrace_enabled (Enable the stacktrace for
+      system type of VeloxException) type: bool default: true
+    -velox_exception_system_stacktrace_rate_limit_ms (Min time interval in
+      milliseconds between stack traces captured in system type of
+      VeloxException; off when set to 0 (the default)) type: int32 default: 0
+    -velox_exception_user_stacktrace_enabled (Enable the stacktrace for user
+      type of VeloxException) type: bool default: false
+    -velox_exception_user_stacktrace_rate_limit_ms (Min time interval in
+      milliseconds between stack traces captured in user type of
+      VeloxException; off when set to 0 (the default)) type: int32 default: 0
+    -velox_memory_leak_check_enabled (If true, check fails on any memory leaks
+      in memory pool and memory manager) type: bool default: false
+    -velox_memory_num_shared_leaf_pools (Number of shared leaf memory pools per
+      process) type: int32 default: 32
+    -velox_memory_pool_debug_enabled (If true, 'MemoryPool' will be running in
+      debug mode to track the allocation and free call sites to detect the
+      source of memory leak for testing purpose) type: bool default: false
+    -velox_memory_use_hugepages (Use explicit huge pages) type: bool
+      default: false
+    -velox_save_input_on_expression_any_failure_path (Enable saving input
+      vector and expression SQL on any failure during expression evaluation.
+      Specifies the directory to use for storing the vectors and expression SQL
+      strings.) type: string default: ""
+    -velox_save_input_on_expression_system_failure_path (Enable saving input
+      vector and expression SQL on system failure during expression evaluation.
+      Specifies the directory to use for storing the vectors and expression SQL
+      strings. This flag is ignored if
+      velox_save_input_on_expression_any_failure_path is set.) type: string
+      default: ""
+    -velox_suppress_memory_capacity_exceeding_error_message (If true, suppress
+      the verbose error message in memory capacity exceeded exception. This is
+      only used by test to control the test error output size) type: bool
+      default: false
+    -velox_time_allocations (Record time and volume for large allocation/free)
+      type: bool default: false
+
+
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/functions/prestosql/URLFunctions.cpp:
+    -ignore_url_decode_invalid_data_exception () type: bool default: false
+
+
+
+  Flags from /mag/workspace/sls-sql-velox/presto-native-execution/velox/velox/type/Conversions.cpp:
+    -experimental_enable_legacy_cast (Experimental feature flag for backward
+      compatibility with previous output format of type conversions used for
+      casting. This is a temporary solution that aims to facilitate a seamless
+      transition for users who rely on the legacy behavior and hence can change
+      in the future.) type: bool default: false
+
+
+
+  Flags from /workspaces/logtail-dependencies/gflags-2.2.1/src/gflags.cc:
+    -flagfile (load flags from file) type: string default: ""
+    -fromenv (set flags from the environment [use 'export FLAGS_flag1=value'])
+      type: string default: ""
+    -tryfromenv (set flags from the environment if present) type: string
+      default: ""
+    -undefok (comma-separated list of flag names that it is okay to specify on
+      the command line even if the program does not define a flag with that
+      name.  IMPORTANT: flags in this list that have arguments MUST use the
+      flag=value format) type: string default: ""
+
+  Flags from /workspaces/logtail-dependencies/gflags-2.2.1/src/gflags_completions.cc:
+    -tab_completion_columns (Number of columns to use in output for tab
+      completion) type: int32 default: 80
+    -tab_completion_word (If non-empty, HandleCommandLineCompletions() will
+      hijack the process and attempt to do bash-style command line flag
+      completion on this value.) type: string default: ""
+
+  Flags from /workspaces/logtail-dependencies/gflags-2.2.1/src/gflags_reporting.cc:
+    -help (show help on all flags [tip: all flags can have two dashes])
+      type: bool default: false currently: true
+    -helpfull (show help on all flags -- same as -help) type: bool
+      default: false
+    -helpmatch (show help on modules whose name contains the specified substr)
+      type: string default: ""
+    -helpon (show help on the modules named by this flag value) type: string
+      default: ""
+    -helppackage (show help on all modules in the main package) type: bool
+      default: false
+    -helpshort (show help on only the main module for this program) type: bool
+      default: false
+    -helpxml (produce an xml version of help) type: bool default: false
+    -version (show version and build info and exit) type: bool default: false
+
+
+
+  Flags from spl/pipeline/SplPipeline.cpp:
+    -is_push_down (spl run in push down mode) type: bool default: false
+    -is_scan_mode (whether mode is scan) type: bool default: false
+    -spl_error_sampling (whether to keep error sampling in SPL Lib) type: bool
+      default: true
+    -spl_etl_pipeline_quota (ETL mode: pipeline quota in SPL Lib) type: int32
+      default: 64
+    -spl_etl_query_max_size (ETL mode: spl query max size) type: int32
+      default: 131072
+    -spl_lib_memory_limit (spl lib total memory limit: default 20G) type: int64
+      default: 21474836480
+    -spl_max_columns (spl supported max columns when calculating) type: int32
+      default: 300
+    -spl_max_expr_depth (spl max expression depth) type: uint32 default: 0
+    -spl_parser_mode (spl parser mode: default 0) type: int32 default: 0
+    -spl_pipeline_quota (pipeline quota in SPL Lib) type: int32 default: 16
+    -spl_query_max_size (spl query max size) type: int32 default: 65536
+    -spl_use_function_whitelist (whether to use function whitelist in SPL Lib)
+      type: bool default: true
+    -use_boost_regex (whether to use boost::regex in parse-regexp) type: bool
+      default: false

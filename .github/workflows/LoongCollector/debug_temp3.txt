@@ -1,0 +1,6 @@
+
+docker run -it --rm tianxiadys/loongcollector:3.2.4
+docker run -d --name=loong -e=ALIYUN_LOGTAIL_USER_DEFINED_ID=docker tianxiadys/loongcollector:3.2.4
+
+/app/loongcollector_3.2.4 --help
+

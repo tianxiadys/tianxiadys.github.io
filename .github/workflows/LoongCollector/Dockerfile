@@ -20,8 +20,6 @@ mv -t /app /app/${ZIPNAME}/bin/*
 mv -t /app /app/${ZIPNAME}/conf
 mv -t /app /app/${ZIPNAME}/resources/*
 link /app/loongcollector_${VERSION} /app/loongcollector
-find /app
-find /data
 ###
 rm -rf /data
 EOF
