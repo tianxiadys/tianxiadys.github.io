@@ -28,6 +28,4 @@ jobs:
           context: .github/workflows/LoongCollector
           push: true
           tags:
-            tianxiadys/loongcollector:0.1.0-2,
-            tianxiadys/loongcollector:0.1.0,
-            tianxiadys/loongcollector:latest
+            tianxiadys/loongcollector:0.1.0-3
