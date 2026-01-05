@@ -17,7 +17,7 @@ apt clean
 curl -L -o /data/download.tgz ${ZIPURL}
 tar -zxf /data/download.tgz -C /app
 mv -t /app /app/${ZIPNAME}/bin/*
-mv -t /app /app/${ZIPNAME}/conf
+mv -t /app /app/${ZIPNAME}/conf/*
 mv -t /app /app/${ZIPNAME}/resources/*
 link /app/loongcollector_${VERSION} /app/loongcollector
 ###
