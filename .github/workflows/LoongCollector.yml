@@ -28,7 +28,7 @@ jobs:
           context: .github/workflows/LoongCollector
           push: true
           tags:
-            tianxiadys/loongcollector:3.2.4-5,
+            tianxiadys/loongcollector:3.2.4-6,
             tianxiadys/loongcollector:3.2.4-debian,
             tianxiadys/loongcollector:3.2.4,
             tianxiadys/loongcollector:latest
