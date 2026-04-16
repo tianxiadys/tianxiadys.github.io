@@ -1,9 +1,9 @@
-FROM debian:12.12
+FROM debian:12.13
 
 ARG ARCH=x86_64
 ARG REGION=cn-hangzhou
 ARG SYSTEM=linux64
-ARG VERSION=3.2.4
+ARG VERSION=3.2.6
 ARG ZIPNAME=loongcollector-${SYSTEM}
 ARG ZIPURL=https://aliyun-observability-release-${REGION}.oss-${REGION}.aliyuncs.com/loongcollector/${SYSTEM}/${VERSION}/${ARCH}/main/${ZIPNAME}.tar.gz
 
