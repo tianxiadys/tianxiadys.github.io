@@ -1,4 +1,4 @@
-name: Docker:ShadowSocks
+name: Docker:XRay
 on:
   push:
     branches:
