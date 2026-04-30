@@ -28,7 +28,7 @@ jobs:
           context: .github/workflows/XRay
           push: true
           tags:
-            tianxiadys/xray:26.3.27-1,
+            tianxiadys/xray:26.3.27-2,
             tianxiadys/xray:26.3.27-alpine,
             tianxiadys/xray:26.3.27,
             tianxiadys/xray:latest
