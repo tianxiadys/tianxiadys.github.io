@@ -13,36 +13,31 @@
 </head>
 <body>
 <h2>Base64编码工具</h2>
-<p>
-    <label>
-        <input checked id="id_include_1" type="checkbox"/>
-        包含数字
-    </label>
-    <label>
-        <input checked id="id_include_2" type="checkbox"/>
-        包含大写字母
-    </label>
-    <label>
-        <input checked id="id_include_3" type="checkbox"/>
-        包含小写字母
-    </label>
-    <label>
-        <input id="id_include_4" type="checkbox"/>
-        包含数字区符号
-    </label>
-    <label>
-        <input id="id_include_5" type="checkbox"/>
-        包含字母区符号
-    </label>
-</p>
-<p>
-    <button id="id_button_gen16">生成16位密码</button>
-    <button id="id_button_gen24">生成24位密码</button>
-    <button id="id_button_gen32">生成32位密码</button>
-</p>
-<label for="id_textarea_password">
+<label for="id_textarea_input">
 </label>
-<textarea id="id_textarea_password" readonly="readonly">
+<textarea id="id_textarea_input">
 </textarea>
+<p>
+    <button id="id_button_encode">Base64编码↓</button>
+    <button id="id_button_decode">Base64解码↑</button>
+</p>
+<label for="id_textarea_output">
+</label>
+<textarea id="id_textarea_output">
+</textarea>
+<script>
+    onload = () => {
+        const buttonDecoder = document.getElementById('id_button_decode')
+        const buttonEncoder = document.getElementById('id_button_encode')
+        const textInput = document.getElementById('id_textarea_input')
+        const textOutput = document.getElementById('id_textarea_output')
+        buttonEncoder.onclick = () => {
+            textOutput.value = btoa(textInput.value)
+        }
+        buttonDecoder.onclick = () => {
+            textInput.value = atob(textOutput.value)
+        }
+    }
+</script>
 </body>
 </html>
