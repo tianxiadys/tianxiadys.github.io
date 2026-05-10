@@ -7,6 +7,14 @@ function bytesFromBase64(base64) {
 }
 
 /**
+ * @param {String} hex
+ * @returns {Uint8Array}
+ */
+function bytesFromHex(hex) {
+    return Uint8Array.fromHex(hex)
+}
+
+/**
  * @param {String} utf8
  * @returns {Uint8Array}
  */
@@ -21,6 +29,14 @@ function bytesFromUtf8(utf8) {
  */
 function bytesToBase64(bytes) {
     return bytes.toBase64()
+}
+
+/**
+ * @param {Uint8Array} bytes
+ * @returns {String}
+ */
+function bytesToHex(bytes) {
+    return bytes.toHex()
 }
 
 /**
