@@ -3,21 +3,7 @@
  * @returns {Uint8Array}
  */
 function bytesFromBase64(base64) {
-    const temp = atob(base64)
-    return bytesFromChars(temp)
-}
-
-/**
- * @param {String} text
- * @returns {Uint8Array}
- */
-function bytesFromChars(text) {
-    const length = text.length
-    const result = new Uint8Array(length)
-    for (let i = 0; i < length; i++) {
-        result[i] = text.charCodeAt(i)
-    }
-    return result
+    return Uint8Array.fromBase64(base64)
 }
 
 /**
@@ -34,16 +20,7 @@ function bytesFromUtf8(utf8) {
  * @returns {String}
  */
 function bytesToBase64(bytes) {
-    const temp = bytesToChars(bytes)
-    return btoa(temp)
-}
-
-/**
- * @param {Uint8Array} bytes
- * @returns {String}
- */
-function bytesToChars(bytes) {
-    return String.fromCharCode(...bytes)
+    return bytes.toBase64()
 }
 
 /**

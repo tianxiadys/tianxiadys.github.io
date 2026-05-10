@@ -1,0 +1,6 @@
+{
+    "devDependencies": {
+        "@types/web": "^0.0.349"
+    },
+    "private": true
+}
