@@ -2,3 +2,16 @@ textarea {
     height: 200px;
     width: 480px;
 }
+
+.print-chars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 480px;
+}
+
+.print-chars > div {
+    background-color: #eee;
+    text-align: center;
+    width: 25px;
+}

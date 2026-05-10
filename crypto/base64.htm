@@ -13,6 +13,8 @@
 </label>
 <textarea id="id_textarea_input">
 </textarea>
+<div id="id_print_input" class="print-chars">
+</div>
 <p>
     <button id="id_button_encode">Base64编码↓↓↓</button>
     <button id="id_button_decode">Base64解码↑↑↑</button>
@@ -27,15 +29,18 @@
     onload = () => {
         const buttonDecoder = document.getElementById('id_button_decode')
         const buttonEncoder = document.getElementById('id_button_encode')
+        const printInput = document.getElementById('id_print_input')
         const textInput = document.getElementById('id_textarea_input')
         const textOutput = document.getElementById('id_textarea_output')
         buttonEncoder.onclick = () => {
             const bytes = bytesFromUtf8(textInput.value)
             textOutput.value = bytesToBase64(bytes)
+            printInput.innerHTML = printBytes(bytes)
         }
         buttonDecoder.onclick = () => {
             const bytes = bytesFromBase64(textOutput.value)
             textInput.value = bytesToUtf8(bytes)
+            printInput.innerHTML = printBytes(bytes)
         }
     }
 </script>
