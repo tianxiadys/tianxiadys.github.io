@@ -3,13 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=500"/>
-    <title>base64 encoder</title>
-    <style>
-        textarea {
-            height: 200px;
-            width: 480px;
-        }
-    </style>
+    <title>Base64编码工具</title>
+    <link href="crypto1.css" rel="stylesheet">
 </head>
 <body>
 <a href="/index.htm">返回首页</a>
@@ -19,13 +14,15 @@
 <textarea id="id_textarea_input">
 </textarea>
 <p>
-    <button id="id_button_encode">Base64编码↓</button>
-    <button id="id_button_decode">Base64解码↑</button>
+    <button id="id_button_encode">Base64编码↓↓↓</button>
+    <button id="id_button_decode">Base64解码↑↑↑</button>
 </p>
 <label for="id_textarea_output">
 </label>
 <textarea id="id_textarea_output">
 </textarea>
+<script src="crypto1.js">
+</script>
 <script>
     onload = () => {
         const buttonDecoder = document.getElementById('id_button_decode')
@@ -33,10 +30,12 @@
         const textInput = document.getElementById('id_textarea_input')
         const textOutput = document.getElementById('id_textarea_output')
         buttonEncoder.onclick = () => {
-            textOutput.value = btoa(textInput.value)
+            const bytes = bytesFromUtf8(textInput.value)
+            textOutput.value = bytesToBase64(bytes)
         }
         buttonDecoder.onclick = () => {
-            textInput.value = atob(textOutput.value)
+            const bytes = bytesFromBase64(textOutput.value)
+            textInput.value = bytesToUtf8(bytes)
         }
     }
 </script>
