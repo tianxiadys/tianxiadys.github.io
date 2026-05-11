@@ -58,8 +58,12 @@ function printBytes(bytes) {
         const div1 = document.createElement('div')
         const div2 = document.createElement('div')
         const div3 = document.createElement('div')
-        div2.innerText = byte.toString(16)
-        if (byte >= 32 && byte <= 126) {
+        if (byte < 16) {
+            div2.innerText = '0' + byte.toString(16)
+        } else {
+            div2.innerText = byte.toString(16)
+        }
+        if (byte > 32 && byte < 127) {
             div3.innerText = String.fromCharCode(byte)
         }
         div1.appendChild(div2)
