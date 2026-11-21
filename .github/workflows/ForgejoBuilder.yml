@@ -28,5 +28,5 @@ jobs:
           context: .github/workflows/ForgejoBuilder
           push: true
           tags: |
-            tianxiadys/builder:1.0.1
+            tianxiadys/builder:1.0.2
             tianxiadys/builder:latest
