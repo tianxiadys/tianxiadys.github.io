@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - ForgejoRunner.yml
+      - .github/workflows/ForgejoRunner.yml
 jobs:
   mirror-docker:
     runs-on: ubuntu-latest
