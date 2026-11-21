@@ -1,0 +1,22 @@
+name: Docker:ForgejoRunner
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ForgejoRunner.yml
+jobs:
+  mirror-docker:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_IMAGE: code.forgejo.org/forgejo/runner:13.2.2
+      TARGET_IMAGE: tianxiadys/runner:13.2.2
+    steps:
+      - name: Docker Login
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_KEY }}
+
+      - name: Mirror Image
+        run: docker buildx imagetools create -t $TARGET_IMAGE $SOURCE_IMAGE

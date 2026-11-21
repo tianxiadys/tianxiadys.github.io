@@ -7,4 +7,3 @@ ij_javascript_use_double_quotes = false
 ij_javascript_use_semicolon_after_statement = false
 ij_javascript_spaces_within_imports = true
 ij_javascript_spaces_within_object_literal_braces = true
-indent_size = 4
