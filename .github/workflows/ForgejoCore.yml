@@ -1,4 +1,4 @@
-name: Docker:ForgejoCore
+name: ForgejoCore
 on:
   push:
     branches:
